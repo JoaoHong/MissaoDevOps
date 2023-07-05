@@ -28,7 +28,7 @@ jobs:
             joaohong/wordpress:latest
             
             
-    deploy_production:
+  deploy_production:
     runs-on: ubuntu-latest
     
     steps:
