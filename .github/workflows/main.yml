@@ -42,8 +42,6 @@ jobs:
           echo "Deploying to production branch"
           git checkout -B $TARGET_BRANCH
           git merge origin/main
-          git config --global user.email "jhong.coderunner@gmail.com"
-          git config --global user.name "JoaoHong"
           git push --force --set-upstream origin $TARGET_BRANCH
 
   deploy_homologation:
@@ -60,6 +58,4 @@ jobs:
           echo "Deploying to homologation branch"
           git checkout -B $TARGET_BRANCH
           git merge origin/main
-          git config --global user.email "jhong.coderunner@gmail.com"
-          git config --global user.name "JoaoHong"
           git push --force --set-upstream origin $TARGET_BRANCH
