@@ -26,3 +26,40 @@ jobs:
           tags: |
             joaohong/mariadb:latest
             joaohong/wordpress:latest
+            
+            
+  deploy_production:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        
+      - name: Deploy to production
+        env:
+          TARGET_BRANCH: prod
+        run: |
+          # Realizar as ações necessárias para o deploy para produção
+          # Exemplo:
+          echo "Deploying to production branch"
+          git checkout -B $TARGET_BRANCH
+          git merge origin/main
+          git push origin $TARGET_BRANCH
+
+  deploy_homologation:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        
+      - name: Deploy to homologation
+        env:
+          TARGET_BRANCH: homolog
+        run: |
+          # Realizar as ações necessárias para o deploy para homologação
+          # Exemplo:
+          echo "Deploying to homologation branch"
+          git checkout -B $TARGET_BRANCH
+          git merge origin/main
+          git push origin $TARGET_BRANCH
