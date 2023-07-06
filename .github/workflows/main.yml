@@ -24,7 +24,8 @@ jobs:
         run: |
           git config --global user.email "actions@github.com"
           git config --global user.name "GitHub Actions"
-          git add backup_folder
+          git add wordpress_data/wp-content/twentytwentyone_tmp
+          git add wordpress_data/wp-content/twentytwentyone_old
           git commit -m "Create backup of theme folder"
           git push origin main
           
