@@ -30,7 +30,7 @@ jobs:
           git config --global user.name "GitHub Actions"
           git push --force --set-upstream origin $TARGET_BRANCH
           docker-compose exec -T wordpress mkdir /var/www/html/wp-content/themes/twentytwentyone_tmp
-          docker cp <diretório_do_tema> wordpress:/var/www/html/wp-content/themes/twentytwentyone_tmp
+          docker cp wordpress_data/wp-content/themes/twentytwentyone wordpress:/var/www/html/wp-content/themes/twentytwentyone_tmp
           docker-compose exec -T wordpress mv /var/www/html/wp-content/themes/twentytwentyone /var/www/html/wp-content/themes/twentytwentyone_old
           docker-compose exec -T wordpress mv /var/www/html/wp-content/themes/twentytwentyone_tmp /var/www/html/wp-content/themes/twentytwentyone
 
@@ -56,6 +56,6 @@ jobs:
           git config --global user.name "GitHub Actions"
           git push --force --set-upstream origin $TARGET_BRANCH
           docker-compose exec -T wordpress mkdir /var/www/html/wp-content/themes/twentytwentyone_tmp
-          docker cp /wordpress_data/wp-content/themes/twentytwentyone wordpress:/var/www/html/wp-content/themes/twentytwentyone_tmp
+          docker cp wordpress_data/wp-content/themes/twentytwentyone wordpress:/var/www/html/wp-content/themes/twentytwentyone_tmp
           docker-compose exec -T wordpress mv /var/www/html/wp-content/themes/twentytwentyone /var/www/html/wp-content/themes/twentytwentyone_old
           docker-compose exec -T wordpress mv /var/www/html/wp-content/themes/twentytwentyone_tmp /var/www/html/wp-content/themes/twentytwentyone
