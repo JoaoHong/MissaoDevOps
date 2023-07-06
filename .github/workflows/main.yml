@@ -8,24 +8,22 @@ jobs:
 
   backup_theme_folder:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-        
+
       - name: Create backup folder
         run: |
-          mkdir -p wordpress_data/wp-content/twentytwentyone_tmp
-          mkdir -p wordpress_data/wp-content/twentytwentyone_old
+          mkdir wordpress_data/wp-content/themes/twentytwentyone_tmp
           cp -R wordpress_data/wp-content/themes/twentytwentyone wordpress_data/wp-content/themes/twentytwentyone_tmp
-          mv wordpress_data/wp-content/themes/twentytwentyone wordpress_data/wp-content/themes/twentytwentyone_old
-          mv wordpress_data/wp-content/themes/twentytwentyone_tmp wordpress_data/wp-content/themes/twentytwentyone
+          cp -R wordpress_data/wp-content/themes/twentytwentyone wordpress_data/wp-content/themes/twentytwentyone_old
+          cp -R wordpress_data/wp-content/themes/twentytwentyone_tmp wordpress_data/wp-content/themes/twentytwentyone
       - name: Commit and push backup changes
         run: |
           git config --global user.email "actions@github.com"
           git config --global user.name "GitHub Actions"
-          git add wordpress_data/wp-content/twentytwentyone_tmp
-          git add wordpress_data/wp-content/twentytwentyone_old
+          git add wordpress_data/wp-content/themes/twentytwentyone_tmp
           git commit -m "Create backup of theme folder"
           git push origin main
           
