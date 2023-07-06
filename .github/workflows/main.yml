@@ -16,6 +16,7 @@ jobs:
       - name: Create backup folder
         run: |
           mkdir -p wordpress_data/wp-content/twentytwentyone_tmp
+          mkdir -p wordpress_data/wp-content/twentytwentyone_old
           cp -R wordpress_data/wp-content/themes/twentytwentyone wordpress_data/wp-content/themes/twentytwentyone_tmp
           mv wordpress_data/wp-content/themes/twentytwentyone wordpress_data/wp-content/themes/twentytwentyone_old
           mv wordpress_data/wp-content/themes/twentytwentyone_tmp wordpress_data/wp-content/themes/twentytwentyone
