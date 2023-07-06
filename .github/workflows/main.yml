@@ -17,11 +17,7 @@ jobs:
       - name: Build and run Docker containers
         run: |
           docker-compose up -d
-          
-      - name: Create backup
-        run: |
-          docker-compose exec -T db sh -c 'exec mysqldump --all-databases -u "root" -p"@123Mudar"' > backup.sql
-
+        
         
       - name: Deploy to production
         env:
@@ -48,11 +44,6 @@ jobs:
       - name: Build and run Docker containers
         run: |
           docker-compose up -d
-          
-      - name: Create backup
-        run: |
-          docker-compose exec -T db sh -c 'exec mysqldump --all-databases -u "root" -p"@123Mudar"' > backup.sql
-        
         
       - name: Deploy to homologation
         env:
