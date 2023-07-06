@@ -15,9 +15,10 @@ jobs:
         
       - name: Create backup folder
         run: |
-          mkdir backup_folder
-          cp -R wordpress_data/wp-content/themes/twentytwentyone backup_folder/temas_old
-
+          mkdir -p wordpress_data/wp-content/twentytwentyone_tmp
+          cp -R wordpress_data/wp-content/themes/twentytwentyone wordpress_data/wp-content/themes/twentytwentyone_tmp
+          mv wordpress_data/wp-content/themes/twentytwentyone wordpress_data/wp-content/themes/twentytwentyone_old
+          mv wordpress_data/wp-content/themes/twentytwentyone_tmp wordpress_data/wp-content/themes/twentytwentyone
       - name: Commit and push backup changes
         run: |
           git config --global user.email "actions@github.com"
